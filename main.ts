@@ -44,7 +44,13 @@ function happyEnding () {
     return happy1
 }
 function imSorry () {
-	
+    imsorry1 = createScript("Mr. Kao", "I'm sorry. I'm so old, I forget so much.", 1)
+    imsorry2 = createScript("Pineapple", "OK, just give me $2 and I will get you water", 3)
+    blockObject.setAnyProperty(imsorry1, AnyProp.NextPage, imsorry2)
+    blockObject.setStringArrayProperty(imsorry2, StrArrayProp.Choices, ["OK here's $2!", "Can we make a trade instead?"])
+    blockObject.setAnyProperty(imsorry2, AnyProp.Choice1, happyEnding())
+    blockObject.setAnyProperty(imsorry2, AnyProp.Choice2, tradeInstead())
+    return imsorry1
 }
 // microsoft/arcade-block-objects
 // 
@@ -98,7 +104,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function noMoneyForYou () {
     nomoneyforyou1 = createScript("Mr. Kao", "Send me the IRS if you want, I'LL NEVER PAY! No money for you!", 2)
-    nomoneyforyou2 = createScript("Pineapple", "OK, I'll give you a deal. Buy two get one free", 3)
+    nomoneyforyou2 = createScript("Pineapple", "OK, I'll give you a deal. Buy two get one free.", 3)
     nomoneyforyou3 = createScript("Pineapple", "$4 for two waters and Cheetos!! :)", 0)
     blockObject.setAnyProperty(nomoneyforyou1, AnyProp.NextPage, nomoneyforyou2)
     blockObject.setAnyProperty(nomoneyforyou2, AnyProp.NextPage, nomoneyforyou3)
@@ -155,6 +161,12 @@ function imAnOldMan () {
     blockObject.setAnyProperty(oldman2, AnyProp.Choice2, noMoneyForYou())
     return oldman1
 }
+function tradeInstead () {
+    trade1 = createScript("Mr. Kao", "Can we Make a Trade instead? I'll give you my cane!", 1)
+    trade2 = createScript("Pineapple", "OK, I'll give you water in exchange for your cane.", 0)
+    blockObject.setAnyProperty(trade1, AnyProp.NextPage, trade2)
+    return trade1
+}
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (choiceIndex == 0) {
         choiceIndex = 1
@@ -169,6 +181,8 @@ function createScript (characterName: string, text: string, portrait: number) {
     return newScript
 }
 let newScript: blockObject.BlockObject = null
+let trade2: blockObject.BlockObject = null
+let trade1: blockObject.BlockObject = null
 let oldman2: blockObject.BlockObject = null
 let oldman1: blockObject.BlockObject = null
 let printingStuff = false
@@ -182,6 +196,8 @@ let currentScript: blockObject.BlockObject = null
 let nextPage: blockObject.BlockObject = null
 let startScript: blockObject.BlockObject = null
 let choiceIndex = 0
+let imsorry2: blockObject.BlockObject = null
+let imsorry1: blockObject.BlockObject = null
 let happy4: blockObject.BlockObject = null
 let happy3: blockObject.BlockObject = null
 let happy2: blockObject.BlockObject = null
