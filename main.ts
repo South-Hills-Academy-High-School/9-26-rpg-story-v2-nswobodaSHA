@@ -133,7 +133,7 @@ function finalChoice () {
     FinalChoice2 = createScript("Pineapple", "I can make that happen! What's the magic word?", 0)
     blockObject.setAnyProperty(FinalChoice1, AnyProp.NextPage, FinalChoice2)
     blockObject.setStringArrayProperty(FinalChoice2, StrArrayProp.Choices, ["Please!", "Abracadabra!"])
-    blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice1, superhappyEnding())
+    blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice1, superHappyEnding())
     blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice2, sadEnding())
     return FinalChoice1
 }
