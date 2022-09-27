@@ -43,6 +43,17 @@ function happyEnding () {
     blockObject.setAnyProperty(happy3, AnyProp.NextPage, happy4)
     return happy1
 }
+let superhappy1: blockObject.BlockObject = null
+let superhappy2: blockObject.BlockObject = null
+let superhappy3: blockObject.BlockObject = null
+function superHappyEnding() {
+    superhappy1: createScript("Mr.Kao","Thank you for the water!", 1)
+    superhappy2: createScript("Pineapple","Thank YOU for your coopoeration! Goodbye,", 3)
+    superhappy3: createScript("Mr. Kao","Goodbye.", 1)
+    blockObject.setAnyProperty(superhappy1, AnyProp.NextPage, superhappy2)
+    blockObject.setAnyProperty(superhappy2, AnyProp.NextPage, superhappy3)
+    return superhappy1
+}
 function sadEnding() {
     sadending1 = createScript("Mr. Kao","I will go to the restroom now, BYE!!!",2)
     sadending2 = createScript("Pineapple","Don't leave me! My boss will kill me.",2)
@@ -74,7 +85,7 @@ function createConversation () {
     blockObject.setAnyProperty(startScript, AnyProp.NextPage, nextPage)
     blockObject.setStringArrayProperty(nextPage, StrArrayProp.Choices, ["I'm an old man!", "I'm sorry :("])
     blockObject.setAnyProperty(nextPage, AnyProp.Choice1, imAnOldMan())
-    blockObject.setAnyProperty(nextPage, AnyProp.Choice2, 0)
+    blockObject.setAnyProperty(nextPage, AnyProp.Choice2, sadEnding())
     currentScript = startScript
 }
 function printScript (name: string, text: string, portrait: number) {
@@ -122,7 +133,7 @@ function finalChoice () {
     FinalChoice2 = createScript("Pineapple", "I can make that happen! What's the magic word?", 0)
     blockObject.setAnyProperty(FinalChoice1, AnyProp.NextPage, FinalChoice2)
     blockObject.setStringArrayProperty(FinalChoice2, StrArrayProp.Choices, ["Please!", "Abracadabra!"])
-    blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice1, happyEnding())
+    blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice1, superhappyEnding())
     blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice2, sadEnding())
     return FinalChoice1
 }
