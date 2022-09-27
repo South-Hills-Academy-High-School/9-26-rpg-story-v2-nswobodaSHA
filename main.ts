@@ -43,6 +43,12 @@ function happyEnding () {
     blockObject.setAnyProperty(happy3, AnyProp.NextPage, happy4)
     return happy1
 }
+function sadEnding() {
+    sadending1 = createScript("Mr. Kao","I will go to the restroom now, BYE!!!",2)
+    sadending2 = createScript("Pineapple","Don't leave me! My boss will kill me.",2)
+    blockObject.setAnyProperty(sadending1, AnyProp.NextPage, sadending2)
+    return sadending1
+}
 function imSorry () {
     let imsorry3: blockObject.BlockObject = null
     imsorry1 = createScript("Mr. Kao", "I'm sorry. I'm so old, I forget so much.", 1)
@@ -117,7 +123,7 @@ function finalChoice () {
     blockObject.setAnyProperty(FinalChoice1, AnyProp.NextPage, FinalChoice2)
     blockObject.setStringArrayProperty(FinalChoice2, StrArrayProp.Choices, ["Please!", "Abracadabra!"])
     blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice1, happyEnding())
-    blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice2, Abracadabra())
+    blockObject.setAnyProperty(FinalChoice2, AnyProp.Choice2, sadEnding())
     return FinalChoice1
 }
 function updateChoices () {
@@ -214,6 +220,8 @@ let happy4: blockObject.BlockObject = null
 let happy3: blockObject.BlockObject = null
 let happy2: blockObject.BlockObject = null
 let happy1: blockObject.BlockObject = null
+let sadending1: blockObject.BlockObject = null
+let sadending2: blockObject.BlockObject = null
 let character2: Sprite = null
 let character1: Sprite = null
 let choice2: TextSprite = null
